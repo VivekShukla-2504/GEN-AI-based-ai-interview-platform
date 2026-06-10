@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
         )
     },
 
-    // ✅ 404 Fallback Route (IMPORTANT ADDITION)
+    //  404 Fallback Route 
     {
         path: "*",
         element: (
