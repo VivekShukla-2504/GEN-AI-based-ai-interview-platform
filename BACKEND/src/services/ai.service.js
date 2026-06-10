@@ -196,7 +196,7 @@ ${jobDescription}
         const parsed = safeParse(response.text);
 
         if (!parsed || !parsed.technicalQuestions?.length) {
-            console.warn("⚠️ AI fallback triggered");
+            console.warn(" AI fallback triggered");
             return buildFallbackData();
         }
 
