@@ -6,9 +6,9 @@ async function connectToDB() {
             serverSelectionTimeoutMS: 5000,
         });
 
-        console.log("✅ Connected to Database");
+        console.log(" Connected to Database");
     } catch (err) {
-        console.error("❌ Database connection failed:", err.message);
+        console.error(" Database connection failed:", err.message);
 
         // IMPORTANT: stop server if DB fails
         process.exit(1);
