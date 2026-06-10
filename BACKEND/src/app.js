@@ -37,7 +37,7 @@ app.use("/api/interview", interviewRouter);
 /* ---------------- HEALTH CHECK ---------------- */
 app.get("/", (req, res) => {
     res.status(200).json({
-        message: "Server is running 🚀"
+        message: "Server is running "
     });
 });
 
