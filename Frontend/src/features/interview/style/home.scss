@@ -1,0 +1,215 @@
+// ── Variables ────────────────────────────────────────────────────────────────
+$bg-page: #0d1117;
+$bg-card: #161b22;
+$bg-input: #1e2535;
+$border-color: #2a3348;
+
+$text-primary: #e6edf3;
+$text-muted: #7d8590;
+
+$accent: #ff2d78;
+
+$badge-required: #ff2d78;
+$badge-best: #ff2d78;
+
+$info-bg: #1b2a4a;
+$info-border: #2d4a7a;
+
+$danger: #ff4d4f;
+
+$font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+
+// ── Page Shell ───────────────────────────────────────────────────────────────
+.home-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $bg-page;
+    color: $text-primary;
+    font-family: $font-stack;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+}
+
+// ── ERROR BANNER (🔥 added) ───────────────────────────────────────────────────
+.error-banner {
+    width: 100%;
+    max-width: 900px;
+    background: rgba($danger, 0.1);
+    border: 1px solid rgba($danger, 0.4);
+    color: $danger;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+}
+
+// ── HEADER ────────────────────────────────────────────────────────────────────
+.page-header {
+    text-align: center;
+    max-width: 900px;
+
+    h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: $text-muted;
+        font-size: 0.95rem;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .highlight {
+        color: $accent;
+    }
+}
+
+// ── CARD ──────────────────────────────────────────────────────────────────────
+.interview-card {
+    width: 100%;
+    max-width: 900px;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    &__body {
+        display: flex;
+        min-height: 520px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid $border-color;
+    }
+}
+
+// ── PANELS ────────────────────────────────────────────────────────────────────
+.panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    &__textarea {
+        width: 100%;
+        min-height: 180px;
+        background: $bg-input;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        color: $text-primary;
+        padding: 0.75rem;
+        resize: none;
+        transition: 0.2s;
+
+        &:focus {
+            border-color: $accent;
+            outline: none;
+        }
+    }
+}
+
+// ── FILE INPUT ────────────────────────────────────────────────────────────────
+input[type="file"] {
+    padding: 0.5rem;
+    border: 1px dashed $border-color;
+    border-radius: 0.5rem;
+    background: $bg-input;
+    color: $text-muted;
+}
+
+// ── BUTTON ───────────────────────────────────────────────────────────────────
+.generate-btn {
+    background: linear-gradient(135deg, $accent, darken($accent, 10%));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// ── REPORT LIST ───────────────────────────────────────────────────────────────
+.recent-reports {
+    width: 100%;
+    max-width: 900px;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+
+    .report-item {
+        background: $bg-card;
+        border: 1px solid $border-color;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+            border-color: $accent;
+        }
+
+        h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: $text-muted;
+            font-size: 0.85rem;
+        }
+    }
+}
+
+// ── FOOTER ───────────────────────────────────────────────────────────────────
+.page-footer {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        color: $text-muted;
+        font-size: 0.8rem;
+
+        &:hover {
+            color: $text-primary;
+        }
+    }
+}
+
+// ── RESPONSIVE ───────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+    .interview-card__body {
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+}
