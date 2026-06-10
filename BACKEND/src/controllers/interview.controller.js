@@ -21,7 +21,7 @@ async function generateInterViewReportController(req, res) {
     try {
         const { selfDescription, jobDescription } = req.body;
 
-        // ❌ no file + no selfDescription fallback safety handled
+        //  no file + no selfDescription fallback safety handled
         let resumeText = "";
 
         if (req.file) {
@@ -35,7 +35,7 @@ async function generateInterViewReportController(req, res) {
             }
         }
 
-        // ✅ IMPORTANT VALIDATION (your requested fix included)
+        //  IMPORTANT VALIDATION (your requested fix included)
         if (!resumeText && !selfDescription?.trim()) {
             return res.status(400).json({
                 message: "Either resume file or self description is required"
@@ -48,7 +48,7 @@ async function generateInterViewReportController(req, res) {
             });
         }
 
-        // 🤖 AI CALL
+        //  AI CALL
         let aiResponse;
         try {
             aiResponse = await generateInterviewReport({
@@ -69,7 +69,7 @@ async function generateInterViewReportController(req, res) {
             });
         }
 
-        // 💾 SAVE DB
+        //  SAVE DB
         const interviewReport = await interviewReportModel.create({
             title: aiResponse.title || "Interview Report",
             matchScore: aiResponse.matchScore ?? 0,
